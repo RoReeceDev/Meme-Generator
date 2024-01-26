@@ -1,9 +1,62 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  /* text-align: center; */
 }
+
+
+header {
+  display: flex;
+  align-items: center;
+  max-height: 65px;
+  padding: 20px;
+  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100% );
+  color: white;
+}
+
+.header-left>img {
+  height: 30px;
+}
+
+.header-left>h2 {
+ padding-left: 7px;
+ font-size: 2.075rem;
+ margin: 0;
+}
+
+.header-left>h2, .header-right > h4{
+  font-weight: 500;
+}
+
+.header-left {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header-right {
+  justify-content: flex-end;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.header-left, .header-right {
+  display: flex;
+  width: 50%;
+}
+
+
+
 /* 
 .logo {
   height: 6em;
