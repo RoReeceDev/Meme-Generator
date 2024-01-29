@@ -3,6 +3,7 @@ import memesData from '../memesData'
 
 
 const Meme = () => {
+    //State variables, variables that can change and update, they're mutable
     const [memeImg, setMemeImg] = useState("")
 
     function handleNewMeme() {
