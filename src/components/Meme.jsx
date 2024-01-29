@@ -4,13 +4,22 @@ import memesData from '../memesData'
 
 const Meme = () => {
     //State variables, variables that can change and update, they're mutable
-    const [memeImg, setMemeImg] = useState("")
+    const [meme, setMeme] = useState({
+        topText: "",
+        bottomText: "",
+        randomImg: "https://i.imgflip.com/30b1gx.jpg"
+    })
+
+    const [ allMemeData, setAllMemeData ] = useState(memesData)
 
     function handleNewMeme() {
-        const memesArr = memesData.data.memes
+        const memesArr = allMemeData.data.memes
         const randomMeme = Math.floor(Math.random() * memesArr.length)
         const url = memesArr[randomMeme].url
-        setMemeImg(url)
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            randomImg: url
+        }))
     }
 
 
@@ -28,7 +37,7 @@ const Meme = () => {
                 <button className="form-button" onClick={handleNewMeme}>Get a new meme image 🖼</button>
             </div>
 
-            <img src={memeImg} className="meme--img"/>
+            <img src={meme.randomImg} className="meme--img"/>
 
         </main>
     )

@@ -68,6 +68,8 @@ main {
   grid-template: 40px 40px / 1fr 1fr;
   gap: 17px;
   font-size: 1.6rem;
+  margin-bottom: 17px;
+
 }
 
 .form-label {
@@ -99,6 +101,7 @@ main {
 .meme--img {
   max-width: 100%;
   text-align: center;
+  border-radius: 3px;
 }
 
 /* 
