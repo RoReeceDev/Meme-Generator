@@ -11,7 +11,7 @@ const Meme = () => {
     })
 
     const [ allMemeData, setAllMemeData ] = useState(memesData)
-
+//New to create form data for inputs? 
     function handleNewMeme() {
         const memesArr = allMemeData.data.memes
         const randomMeme = Math.floor(Math.random() * memesArr.length)
