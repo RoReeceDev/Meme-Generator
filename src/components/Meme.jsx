@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import memesData from '../memesData'
 
 
@@ -10,7 +10,8 @@ const Meme = () => {
         randomImg: "https://i.imgflip.com/30b1gx.jpg"
     })
 
-    const [allMemeData, setAllMemeData] = useState(memesData)
+    const [allMemeData, setAllMemeData] = useState([])
+
 
     const handleChange = (e) => {
         const { name, type, value } = e.target
@@ -22,12 +23,20 @@ const Meme = () => {
 
     // console.log(meme)
 
+    //useEffect fetch for meme api
+
+    useEffect(() => {
+        fetch('https://api.imgflip.com/get_memes')
+        .then(res => res.json())
+        .then(data => setAllMemeData(data.data.memes))
+    }, [])
+
+
 
     //New to create form data for inputs? 
     function handleNewMeme() {
-        const memesArr = allMemeData.data.memes
-        const randomMeme = Math.floor(Math.random() * memesArr.length)
-        const url = memesArr[randomMeme].url
+        const randomMeme = Math.floor(Math.random() * allMemeData.length)
+        const url = allMemeData[randomMeme].url
         setMeme(prevMeme => ({
             ...prevMeme,
             randomImg: url
